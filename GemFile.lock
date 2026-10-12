@@ -1,0 +1,36 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    gosu (1.4.6)
+    language_server-protocol (3.17.0.6)
+    logger (1.7.0)
+    prism (1.9.0)
+    rbs (4.2.0)
+      logger
+      prism (>= 1.6.0)
+      tsort
+    ruby-lsp (0.26.11)
+      language_server-protocol (~> 3.17.0)
+      prism (>= 1.2, < 2.0)
+      rbs (>= 3, < 5)
+    tsort (0.2.0)
+
+PLATFORMS
+  x64-mingw-ucrt
+
+DEPENDENCIES
+  gosu
+  ruby-lsp
+
+CHECKSUMS
+  bundler (4.0.12) sha256=7f8b757d28dfb636e7b24fba2344ac6dd13b5b24f4b46d62573d483f211825ac
+  gosu (1.4.6)
+  language_server-protocol (3.17.0.6)
+  logger (1.7.0)
+  prism (1.9.0)
+  rbs (4.2.0)
+  ruby-lsp (0.26.11)
+  tsort (0.2.0)
+
+BUNDLED WITH
+  4.0.12

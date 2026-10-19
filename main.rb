@@ -9,9 +9,9 @@ class Game < Gosu::Window
   def initialize
     super(800, 600)
     self.caption = "Pong"
-    
-    @colliders = [Paddel.new(1, width, height), 
-                  Paddel.new(2, width, height), 
+
+    @colliders = [Paddel.new(1, Gosu::KB_W, Gosu::KB_S, width, height), 
+                  Paddel.new(2, Gosu::KB_UP, Gosu::KB_DOWN, width, height), 
                   DrawCollider.new(0, 0, width, 20), 
                   DrawCollider.new(0, height - 20, width, 20)]
 

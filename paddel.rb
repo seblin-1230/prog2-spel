@@ -1,37 +1,28 @@
 require "gosu"
+require_relative "draw_collider"
 
-class Paddel
-  attr_reader :width, :height, :x, :y, :player, :speed, :window_height
+class Paddel < DrawCollider
+  attr_reader :player, :speed, :window_height
+  attr_accessor :x, :y
   def initialize(player, window_width, window_height)
+    player == 1 ? x = 20 : x = window_width - 20
+    y = window_height / 2
+    super(x, y, 10, 50)
+
     @speed = 5
-    
-    @width = 10
-    @height = 50
-
     @player = player
-
-    player == 1 ? @x = 20 : @x = window_width - 20
-    @y = window_height / 2
-
+    @window_width = window_width
     @window_height = window_height
-  end
-
-  def draw()
-    Gosu.draw_rect(x, y, width, height, Gosu::Color::WHITE)
   end
 
   def update()
     if player == 1
-      @y += speed if Gosu.button_down?(Gosu::KB_S)
-      @y -= speed if Gosu.button_down?(Gosu::KB_W)
+      self.y += speed if Gosu.button_down?(Gosu::KB_S)
+      self.y -= speed if Gosu.button_down?(Gosu::KB_W)
     else
-      @y += speed if Gosu.button_down?(Gosu::KB_DOWN)
-      @y -= speed if Gosu.button_down?(Gosu::KB_UP)
+      self.y += speed if Gosu.button_down?(Gosu::KB_DOWN)
+      self.y -= speed if Gosu.button_down?(Gosu::KB_UP)
     end
-    @y = @y.clamp(0, window_height - height)
-  end
-
-  def ball_colliding?(ball_x, ball_y, ball_radius)
-    raise NotImplementedError
+    self.y = self.y.clamp(0, window_height - height)
   end
 end
